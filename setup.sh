@@ -32,7 +32,7 @@ generatePage() {
     cd "$SHARE"
     tagList | sort -u
     for torrent in i2psnark/*.torrent; do
-        transmission-edit -a "http://$zzzot_announce/a" "$torrent"
+        transmission-edit -a "http://$zzzot_announce/a" "$torrent" 2> "$BACK/err" 1> "$BACK/log"
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')
@@ -57,25 +57,19 @@ script(){
     let els = document.querySelectorAll(".lvix1");
     for (let el of els)
       el.addEventListener("click", function () {
+        let divset = document.querySelectorAll(".lvix2");
+        for (let div of divset) div.style.display = "none";
         let cl = el.classList[0];
         let divs = document.querySelectorAll("." + cl);
-        for (let div of divs) div.style.display = hideDivs(div.style.display);
+        for (let div of divs) div.style.display = "inline";
         showTags();
       });
-    let divs = document.querySelectorAll(".lvix2");
-    for (let div of divs) div.style.display = "none";
   }
   function showTags() {
     let els = document.querySelectorAll(".lvix1");
     for (let el of els) {
       el.style.display = "inline";
     }
-  }
-  function hideDivs(prev) {
-    if (prev === "none") {
-      return "inline";
-    }
-    return "none";
   }
 });
 '
