@@ -38,18 +38,18 @@ To do this we'll use a shell script to generate the page.
 #! /usr/bin/env sh
 
 tagList() {
+    echo "  <div class=\"tags\">Tags:"
     for torrent in i2psnark/*.torrent; do
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')
-        echo "  <div class=\"tags\">Tags:"
         for tag in $tags; do
             for tag in $tags; do
                 echo "    <a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
             done
         done
-        echo "  </div>"
     done
+    echo "  </div>"
 }
 
 generatePage() {
