@@ -5,7 +5,7 @@ I2P is a great network for distributing information using Bittorrent.
 However, it's not always easy to make your torrents discoverable to others.
 Uploading files via a WebUI can be time-consuming when you wish to share hundreds of files.
 It's easy to run an open tracker using zzzot, but open trackers don't maintain a searchable index of the files people are sharing.
-This is a hack that will allow you to treat zzzot as both an open tracker **and** a searchable indexing tracker of files that you want to share.
+This is a trick that will allow you to treat zzzot as both an open tracker **and** a searchable indexing tracker of files that you want to share.
 
  - `setup.sh` will do all this automatically on linux.
 
