@@ -36,7 +36,7 @@ generatePage() {
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')
-        echo "  <div id="$filename" class=\"$tags\">"
+        echo "  <div id="$filename" class=\"lvix2 $tags\">"
         echo "    <a href=\"$torrent\">$title</a></br>"
         echo "    <div class=\"tags\">Tags:"
         for tag in $tags; do
@@ -51,32 +51,34 @@ generatePage() {
 }
 
 script(){
-    echo 'window.addEventListener("load", function() {
-    setupTags();
-    function setupTags() {
-        let els = document.querySelectorAll(".lvix1");
-        for (let el of els) el.addEventListener("click", function() {
-            let cl = el.classList[0];
-            console.log(cl);
-            let divs = document.querySelectorAll("."+cl);
-            for (let div of divs) div.style.display = hideDivs(div.style.display);
-            showTags()
-        })
+    echo 'window.addEventListener("load", function () {
+  setupTags();
+  function setupTags() {
+    let els = document.querySelectorAll(".lvix1");
+    for (let el of els)
+      el.addEventListener("click", function () {
+        let cl = el.classList[0];
+        let divs = document.querySelectorAll("." + cl);
+        for (let div of divs) div.style.display = hideDivs(div.style.display);
+        showTags();
+      });
+    let divs = document.querySelectorAll(".lvix2");
+    for (let div of divs) div.style.display = "none";
+  }
+  function showTags() {
+    let els = document.querySelectorAll(".lvix1");
+    for (let el of els) {
+      el.style.display = "inline";
     }
-    function showTags() {
-        let els = document.querySelectorAll(".lvix1");
-        for (let el of els) {
-            console.log("unhiding", el.classList)
-            el.style.display = "inline";
-        }
+  }
+  function hideDivs(prev) {
+    if (prev === "none") {
+      return "inline";
     }
-    function hideDivs(prev) {
-        if (prev === "none") {
-            return "inline";
-        }
-        return "none"
-    }
-})'
+    return "none";
+  }
+});
+'
 }
 
 if [ ! -f script.js ]; then
