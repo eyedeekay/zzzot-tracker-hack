@@ -31,11 +31,15 @@ Step One: Symlink your i2psnark downloads directory to zzzot's docroot
 After you install zzzot, symlink directory where I2PSnark stores it's downloads to a sub-directory of zzzot's document root.
 If you're on Linux and used a `.jar` installer, this command will work:
 
-`ln -sf ~/.i2p/i2psnark ~/.i2p/plugins/zzzot/eepsite/docroot/i2psnark`
+```sh
+ln -sf ~/.i2p/i2psnark ~/.i2p/plugins/zzzot/eepsite/docroot/i2psnark
+```
 
 Or, if you used a Debian package:
 
-`sudo -u i2psvc ln -sf /var/lib/i2p/i2p-config/i2psnark /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/i2psnark`
+```sh
+sudo -u i2psvc ln -sf /var/lib/i2p/i2p-config/i2psnark /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/i2psnark
+```
 
 Step Two: Generate a new zzzot homepage
 ---------------------------------------
