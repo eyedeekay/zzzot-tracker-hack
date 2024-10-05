@@ -1,7 +1,6 @@
 #! /usr/bin/env sh
 
 tagList() {
-    echo "  <div class=\"tags\">Tags:"
     for torrent in i2psnark/*.torrent; do
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
@@ -12,7 +11,6 @@ tagList() {
             done
         done
     done
-    echo "  </div>"
 }
 
 generatePage() {
@@ -30,7 +28,9 @@ generatePage() {
     echo "</head>"
     echo "<body>"
     cd "$SHARE"
+    echo "  <div class=\"tags\">Tags:"
     tagList | sort -u
+    echo "  </div>"
     for torrent in i2psnark/*.torrent; do
         transmission-edit -a "http://$zzzot_announce/a" "$torrent" 2> "$BACK/err" 1> "$BACK/log"
         filename=$(echo $torrent | sed 's|.torrent||g')
@@ -40,7 +40,7 @@ generatePage() {
         echo "    <a href=\"$torrent\">$title</a></br>"
         echo "    <div class=\"tags\">Tags:"
         for tag in $tags; do
-            echo "<a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
+            echo "      <a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
         done
         echo "    </div>"
         echo "  </div>"
@@ -91,7 +91,7 @@ if [ $(whoami) = "i2psvc" ]; then
     export BACK=$(pwd)
     export SHARE=/var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/
     generatePage | tee /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/index.html
-    cp -v script.js /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/script.js
+    cp script.js /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/script.js
 else
     if [ ! -d "$HOME/.i2p/plugins/zzzot/eepsite/docroot" ]; then
         echo "zzzot directory does not exist, did you read the instructions?"
@@ -105,7 +105,7 @@ else
         export BACK=$(pwd)
         export SHARE="$HOME/.i2p/plugins/zzzot/eepsite/docroot/"
         generatePage | tee "$HOME/.i2p/plugins/zzzot/eepsite/docroot/index.html"
-        cp -v script.js "$HOME/.i2p/plugins/zzzot/eepsite/docroot/script.js"
+        cp script.js "$HOME/.i2p/plugins/zzzot/eepsite/docroot/script.js"
     else
         echo "i2psnark directory does not exist, did you install I2P using a \`.deb\`?"
         exit 1

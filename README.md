@@ -53,7 +53,6 @@ To do this we'll use a shell script to generate the page.
 #! /usr/bin/env sh
 
 tagList() {
-    echo "  <div class=\"tags\">Tags:"
     for torrent in i2psnark/*.torrent; do
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
@@ -64,7 +63,6 @@ tagList() {
             done
         done
     done
-    echo "  </div>"
 }
 
 generatePage() {
@@ -82,17 +80,19 @@ generatePage() {
     echo "</head>"
     echo "<body>"
     cd "$SHARE"
+    echo "  <div class=\"tags\">Tags:"
     tagList | sort -u
+    echo "  </div>"
     for torrent in i2psnark/*.torrent; do
-        transmission-edit -a "http://$zzzot_announce/a" "$torrent"
+        transmission-edit -a "http://$zzzot_announce/a" "$torrent" 2> "$BACK/err" 1> "$BACK/log"
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')
-        echo "  <div id="$filename" class=\"$tags\">"
+        echo "  <div id="$filename" class=\"lvix2 $tags\">"
         echo "    <a href=\"$torrent\">$title</a></br>"
         echo "    <div class=\"tags\">Tags:"
         for tag in $tags; do
-            echo "<a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
+            echo "      <a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
         done
         echo "    </div>"
         echo "  </div>"
