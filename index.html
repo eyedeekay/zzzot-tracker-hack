@@ -1,95 +1,122 @@
-<!doctype html>
-<html lang=en>
-<head>
-<meta charset=utf-8>
-<title>Torrent Index</title>
-<script src="script.js"></script>
-<style>
-div {
-  display: "inline";
-}
-</style>
-</head>
-<body>
-    <a class="1 lvix1" href="#1">1</a>
-    <a class="2 lvix1" href="#2">2</a>
-    <a class="5 lvix1" href="#5">5</a>
-    <a class="6 lvix1" href="#6">6</a>
-    <a class="9 lvix1" href="#9">9</a>
-    <a class="eyedeekay lvix1" href="#eyedeekay">eyedeekay</a>
-    <a class="firefox lvix1" href="#firefox">firefox</a>
-    <a class="github lvix1" href="#github">github</a>
-    <a class="i2p lvix1" href="#i2p">i2p</a>
-    <a class="i2ppb lvix1" href="#i2ppb">i2ppb</a>
-    <a class="i2pupdate lvix1" href="#i2pupdate">i2pupdate</a>
-    <a class="i2pwinupdate lvix1" href="#i2pwinupdate">i2pwinupdate</a>
-    <a class="io lvix1" href="#io">io</a>
-    <a class="plugins lvix1" href="#plugins">plugins</a>
-    <a class="su3 lvix1" href="#su3">su3</a>
-    <a class="xpi lvix1" href="#xpi">xpi</a>
-  </div>
-  <div class="tags">Tags:
-  <div id=i2psnark/i2p.plugins.firefox class="i2p plugins firefox">
-    <a href="i2psnark/i2p.plugins.firefox.torrent">i2p.plugins.firefox</a></br>
-    <div class="tags">Tags:
-<a class="i2p lvix1" href="#i2p">i2p</a>
-<a class="plugins lvix1" href="#plugins">plugins</a>
-<a class="firefox lvix1" href="#firefox">firefox</a>
-    </div>
-  </div>
-  <div id=i2psnark/i2ppb-2.5.9@eyedeekay.github.io.xpi class="i2ppb 2 5 9 eyedeekay github io xpi">
-    <a href="i2psnark/i2ppb-2.5.9@eyedeekay.github.io.xpi.torrent">i2ppb 2.5.9@eyedeekay.github.io.xpi</a></br>
-    <div class="tags">Tags:
-<a class="i2ppb lvix1" href="#i2ppb">i2ppb</a>
-<a class="2 lvix1" href="#2">2</a>
-<a class="5 lvix1" href="#5">5</a>
-<a class="9 lvix1" href="#9">9</a>
-<a class="eyedeekay lvix1" href="#eyedeekay">eyedeekay</a>
-<a class="github lvix1" href="#github">github</a>
-<a class="io lvix1" href="#io">io</a>
-<a class="xpi lvix1" href="#xpi">xpi</a>
-    </div>
-  </div>
-  <div id=i2psnark/i2ppb-2.6.1@eyedeekay.github.io.xpi class="i2ppb 2 6 1 eyedeekay github io xpi">
-    <a href="i2psnark/i2ppb-2.6.1@eyedeekay.github.io.xpi.torrent">i2ppb 2.6.1@eyedeekay.github.io.xpi</a></br>
-    <div class="tags">Tags:
-<a class="i2ppb lvix1" href="#i2ppb">i2ppb</a>
-<a class="2 lvix1" href="#2">2</a>
-<a class="6 lvix1" href="#6">6</a>
-<a class="1 lvix1" href="#1">1</a>
-<a class="eyedeekay lvix1" href="#eyedeekay">eyedeekay</a>
-<a class="github lvix1" href="#github">github</a>
-<a class="io lvix1" href="#io">io</a>
-<a class="xpi lvix1" href="#xpi">xpi</a>
-    </div>
-  </div>
-  <div id=i2psnark/i2ppb@eyedeekay.github.io.xpi class="i2ppb eyedeekay github io xpi">
-    <a href="i2psnark/i2ppb@eyedeekay.github.io.xpi.torrent">i2ppb@eyedeekay.github.io.xpi</a></br>
-    <div class="tags">Tags:
-<a class="i2ppb lvix1" href="#i2ppb">i2ppb</a>
-<a class="eyedeekay lvix1" href="#eyedeekay">eyedeekay</a>
-<a class="github lvix1" href="#github">github</a>
-<a class="io lvix1" href="#io">io</a>
-<a class="xpi lvix1" href="#xpi">xpi</a>
-    </div>
-  </div>
-  <div id=i2psnark/i2pupdate-2.5.2.su3 class="i2pupdate 2 5 2 su3">
-    <a href="i2psnark/i2pupdate-2.5.2.su3.torrent">i2pupdate 2.5.2.su3</a></br>
-    <div class="tags">Tags:
-<a class="i2pupdate lvix1" href="#i2pupdate">i2pupdate</a>
-<a class="2 lvix1" href="#2">2</a>
-<a class="5 lvix1" href="#5">5</a>
-<a class="2 lvix1" href="#2">2</a>
-<a class="su3 lvix1" href="#su3">su3</a>
-    </div>
-  </div>
-  <div id=i2psnark/i2pwinupdate.su3 class="i2pwinupdate su3">
-    <a href="i2psnark/i2pwinupdate.su3.torrent">i2pwinupdate.su3</a></br>
-    <div class="tags">Tags:
-<a class="i2pwinupdate lvix1" href="#i2pwinupdate">i2pwinupdate</a>
-<a class="su3 lvix1" href="#su3">su3</a>
-    </div>
-  </div>
-</body>
-</html>
-'script.js' -> '/home/idk/.i2p/plugins/zzzot/eepsite/docroot/script.js'
+<h1>How to self-host your torrents en-masse with zzzot</h1>
+
+<p>I2P is a great network for distributing information using Bittorrent.
+However, it's not always easy to make your torrents discoverable to others.
+Uploading files via a WebUI can be time-consuming when you wish to share hundreds of files.
+It's easy to run an open tracker using zzzot, but open trackers don't maintain a searchable index of the files people are sharing.
+This is a hack that will allow you to treat zzzot as both an open tracker <strong>and</strong> a searchable indexing tracker of files that you want to share.</p>
+
+<h2>Step Zero: Install zzzot</h2>
+
+<p>You need zzzot to make this work.
+You can install zzzot by pasting this link <code>http://stats.i2p/i2p/plugins/zzzot.su3</code> into "Install from URL" on the <a href="http://localhost:7657/configplugins">Plugin Config page</a>.
+You can also obtain zzzot from zzz's plugins page <a href="http://stats.i2p/i2p/plugins/">inside of I2P</a>.</p>
+
+<h2>Step One: Symlink your i2psnark downloads directory to zzzot's docroot</h2>
+
+<p>After you install zzzot, symlink directory where I2PSnark stores it's downloads to a sub-directory of zzzot's document root.
+If you're on Linux and used a <code>.jar</code> installer, this command will work:</p>
+
+<p><code>ln -sf ~/.i2p/i2psnark ~/.i2p/plugins/zzzot/eepsite/docroot/i2psnark</code></p>
+
+<p>Or, if you used a Debian package:</p>
+
+<p><code>sudo -u i2psvc ln -sf /var/lib/i2p/i2p-config/i2psnark /var/lib/i2p/i2p-config/plugins/zzzot/eepsite/docroot/i2psnark</code></p>
+
+<h2>Step Two: Generate a new zzzot homepage</h2>
+
+<p>When you visit the zzzot plugin's homepage via a web browser, either locally or via I2P, it simply serves up the files found in the <code>eepsite/docroot</code>.
+This allows you to customize the zzzot homepage in order to show whatever you want.
+We're going to take advantage of this to generate an index of the torrents we're sharing along with some details about them.
+To do this we'll use a shell script to generate the page.</p>
+
+<p>```sh</p>
+
+<h1>! /usr/bin/env sh</h1>
+
+<p>tagList() {
+    for torrent in i2psnark/*.torrent; do
+        filename=$(echo $torrent | sed 's|.torrent||g')
+        title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
+        tags=$(echo $title | sed 's|.| |g' | sed 's|@| |g')
+        echo "  <div class=\"tags\">Tags:"
+        for tag in $tags; do
+            for tag in $tags; do
+                echo "    <a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
+            done
+        done
+        echo "  </div>"
+    done
+}</p>
+
+<p>generatePage() {
+    echo "<!doctype html>"
+    echo "<html lang=en>"
+    echo "<head>"
+    echo "<meta charset=utf-8>"
+    echo "<title>Torrent Index</title>"
+    echo "<script src=\"script.js\"></script>"
+    echo "<style>"
+    echo "div {"
+    echo "  display: \"inline\";"
+    echo "}"
+    echo "</style>"
+    echo "</head>"
+    echo "<body>"
+    cd "$SHARE"
+    tagList | sort -u
+    for torrent in i2psnark/*.torrent; do
+        filename=$(echo $torrent | sed 's|.torrent||g')
+        title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
+        tags=$(echo $title | sed 's|.| |g' | sed 's|@| |g')
+        echo "  <div id="$filename" class=\"$tags\">"
+        echo "    <a href=\"$torrent\">$title</a></br>"
+        echo "    <div class=\"tags\">Tags:"
+        for tag in $tags; do
+            echo "<a class=\"$tag lvix1\" href=\"#$tag\">$tag</a>"
+        done
+        echo "    </div>"
+        echo "  </div>"
+    done
+    cd $BACK
+    echo "</body>"
+    echo "</html>"
+}</p>
+
+<p>generatePage
+```</p>
+
+<h2>Step Three(Optional): Add the ability to filter torrents with Javascript</h2>
+
+<p>If you're indexing hundreds of torrents, it will help to have the ability to filter the torrents based on their contents.
+Our script from step two converts the titles of the torrents into a list of tags, which can then be filtered.
+This provides us with a way of searching the available torrents efficiently.</p>
+
+<p><code>javascript
+window.addEventListener("load", function() {
+    setupTags();
+    function setupTags() {
+        let els = document.querySelectorAll(".lvix1");
+        for (let el of els) el.addEventListener("click", function() {
+            let cl = el.classList[0];
+            console.log(cl);
+            let divs = document.querySelectorAll("."+cl);
+            for (let div of divs) div.style.display = hideDivs(div.style.display);
+            showTags()
+        })
+    }
+    function showTags() {
+        let els = document.querySelectorAll(".lvix1");
+        for (let el of els) {
+            console.log("unhiding", el.classList)
+            el.style.display = "inline";
+        }
+    }
+    function hideDivs(prev) {
+        if (prev === "none") {
+            return "inline";
+        }
+        return "none"
+    }
+})
+</code></p>
