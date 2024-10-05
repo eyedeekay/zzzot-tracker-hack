@@ -32,6 +32,7 @@ generatePage() {
     cd "$SHARE"
     tagList | sort -u
     for torrent in i2psnark/*.torrent; do
+        transmission-edit -a "http://$zzzot_announce/a" "$torrent"
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')

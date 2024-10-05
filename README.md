@@ -9,12 +9,21 @@ This is a hack that will allow you to treat zzzot as both an open tracker **and*
 
  - `setup.sh` will do all this automatically on linux.
 
-Step Zero: Install zzzot
-------------------------
+Step Zero: Install zzzot and script dependencies
+------------------------------------------------
 
 You need zzzot to make this work.
 You can install zzzot by pasting this link `http://stats.i2p/i2p/plugins/zzzot.su3` into "Install from URL" on the [Plugin Config page](http://localhost:7657/configplugins).
 You can also obtain zzzot from zzz's plugins page [inside of I2P](http://stats.i2p/i2p/plugins/).
+
+Make a note of the zzzot tracker base32 address at [`http://127.0.0.1:7662`](http://127.0.0.1:7662).
+Enter it into the environment variable `zzzot_announce` like so:
+
+```sh
+export zzzot_announce="thisisanexampleofafiftytwocharacterlongbasethirtytwo.b32.i2p"
+```
+
+You'll also need: `sed` `sort` `uniq` and `transmission-edit`.
 
 Step One: Symlink your i2psnark downloads directory to zzzot's docroot
 ----------------------------------------------------------------------
@@ -71,6 +80,7 @@ generatePage() {
     cd "$SHARE"
     tagList | sort -u
     for torrent in i2psnark/*.torrent; do
+        transmission-edit -a "http://$zzzot_announce/a" "$torrent"
         filename=$(echo $torrent | sed 's|.torrent||g')
         title=$(echo $filename | sed 's|-| |g' | sed 's|i2psnark/||g')
         tags=$(echo $title | sed 's|\.| |g' | sed 's|@| |g')
