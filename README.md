@@ -7,6 +7,8 @@ Uploading files via a WebUI can be time-consuming when you wish to share hundred
 It's easy to run an open tracker using zzzot, but open trackers don't maintain a searchable index of the files people are sharing.
 This is a hack that will allow you to treat zzzot as both an open tracker **and** a searchable indexing tracker of files that you want to share.
 
+ - `setup.sh` will do all this automatically on linux.
+
 Step Zero: Install zzzot
 ------------------------
 
